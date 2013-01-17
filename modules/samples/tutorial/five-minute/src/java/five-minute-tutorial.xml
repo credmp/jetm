@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jetm="http://jetm.void.fm/schema/jetm_spring_config_1_2"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+                           http://jetm.void.fm/schema/jetm_spring_config_1_2 http://jetm.void.fm/schema/jetm_spring_config_1_2.xsd">
+
+  <bean id="orderClient"
+        class="etm.tutorial.fiveminute.client.OrderClient"
+        autowire="constructor"/>
+
+  <bean id="groceryStore"
+        class="etm.tutorial.fiveminute.store.GroceryStoreImpl"
+        autowire="constructor"/>
+
+  <bean id="stockDao" class="etm.tutorial.fiveminute.store.dao.StockDaoImpl"
+        autowire="constructor"/>
+
+  <!-- Step 4: Add performance monitoring -->
+  <!--
+    <jetm:monitoring>
+      <jetm:bean-pattern>*Dao</jetm:bean-pattern>
+      <jetm:bean-pattern>groceryStore</jetm:bean-pattern>
+    </jetm:monitoring>
+  -->
+
+  <!-- Step 5: Enable HTTP console -->
+  <!--
+    <jetm:console expanded="true"/>
+  -->
+
+  <jetm:runtime>
+    <jetm:features>
+
+      <!-- Step 6: Alter aggregation chain -->
+      <!--
+        <jetm:interval-buffer interval="1000"/>
+      -->
+
+      <!-- Step 7:  Log raw performance results -->
+      <!--
+        <jetm:raw-data-log type="commons"/>
+      -->
+
+    </jetm:features>
+  </jetm:runtime>
+
+</beans>
+  
